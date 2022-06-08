@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+<a class="backlink" href="/">Home</a>
+<h1>{{ object }}</h1> <!-- was post -->
+<p class="byline">
+  Posted by {{ object.author.username }} &mdash; {{ object.published_date }} <!-- was post -->
+</p>
+<div class="post-body">
+  {{ object.text }} <!-- was post -->
+</div>
+<ul class="categories">
+  {% for category in object.categories.all %}
+    <li>{{ category }}</li>
+  {% endfor %}
+</ul>
+{% endblock %}
